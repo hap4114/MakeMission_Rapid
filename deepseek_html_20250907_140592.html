@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The MuSo Pursuit</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f9ff;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="%23a2d2ff" stroke-width="2" fill="none" /></svg>');
+            background-repeat: repeat;
+        }
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 5px solid #ffafcc;
+        }
+        h1 {
+            color: #ff6392;
+            text-shadow: 2px 2px 0px #a2d2ff;
+        }
+        .intro {
+            margin-bottom: 25px;
+        }
+        .clue-box {
+            background-color: #e0fafa;
+            border: 3px solid #3a86ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .keyword {
+            font-weight: bold;
+            color: #e63946;
+        }
+        .hint-button {
+            background-color: #fb8500;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 10px 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+        .button {
+            background-color: #3a86ff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            margin: 15px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background-color: #ff6392;
+            transform: scale(1.05);
+        }
+        .fact {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            display: none;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #successMessage {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #d8f3dc;
+            border-radius: 15px;
+            border: 3px solid #40916c;
+            animation: popIn 0.5s ease;
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🔧 The MuSo Pursuit 🔧</h1>
+        
+        <p class="intro">Calling all future engineers and designers! Your mission is to find the creative heart of MuSo. Crack the clue to discover its name!</p>
+        
+        <div class="clue-box">
+            <p>To find the spot where ideas take flight,<br>
+            Where creations are built with all your might!</p>
+            
+            <p>With a <span class="keyword">focused hot beam</span> that can cut and engrave,<br>
+            And a <span class="keyword">nozzle that layers</span> the plastic it gave.<br>
+            We turn 'what if' to 'what is,' it's truly a sight!<br>
+            We help <span class="keyword">build your dreams</span> with speed and with light.</p>
+            
+            <p>What is this floor? It's simple and plain,<br>
+            The place where you <span class="keyword">Make</span> and use your big brain!</p>
+        </div>
+
+        <button class="hint-button" onclick="showFact('finalHint')">I need a hint!</button>
+        <p id="finalHint" class="fact">The name is just one word. It's a verb that means "to create or build something." It's also in the clue, highlighted in red!</p>
+
+        <br>
+        <button class="button" onclick="revealAnswer()">I know the answer!</button>
+        
+        <div id="successMessage">
+            <h2>🎉 You Did It! 🎉</h2>
+            <p>You've cracked the code! The answer is...</p>
+            <h2>The <span class="keyword">Make Floor</span>!</h2>
+            <p>This is where dreams come to life with amazing machines like laser cutters and 3D printers.</p>
+            <p><strong>Your mission:</strong> Find a MuSo Guide and tell them the name of this floor to claim your reward! Great work, maker!</p>
+        </div>
+    </div>
+
+    <script>
+        function showFact(factId) {
+            var factElement = document.getElementById(factId);
+            if (factElement.style.display === "block") {
+                factElement.style.display = "none";
+            } else {
+                factElement.style.display = "block";
+            }
+        }
+
+        function revealAnswer() {
+            var answer = prompt("What is the name of this creative floor? (Check your spelling!)").toLowerCase().trim();
+            
+            // Check for the correct answer, allowing for minor variations
+            if (answer === "make floor" || answer === "make") {
+                document.getElementById("successMessage").style.display = "block";
+            } else {
+                alert("That's not quite it! Re-read the clue. Look at the word in red. Try again!");
+            }
+        }
+    </script>
+</body>
+</html>
